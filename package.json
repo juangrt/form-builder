@@ -1,0 +1,30 @@
+{
+  "name": "form-builder",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@babel/core": "^7.9.0",
+    "@elastic/datemath": "^5.0.2",
+    "@elastic/eui": "^19.0.0",
+    "babel-loader": "8.1.0",
+    "moment": "^2.24.0",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-json-form-engine": "^2.0.6",
+    "react-jsonschema-form": "^1.8.1",
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.1"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
