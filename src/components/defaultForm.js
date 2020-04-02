@@ -12,6 +12,7 @@ export default function(props) {
         <Form
           tagName="div"
           schema={schema}
+          liveValidate={true}
           onChange={log("change")}
           onSubmit={log("submitted")}
           onError={log("errors")} />

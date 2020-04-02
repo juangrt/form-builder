@@ -1,62 +1,40 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import Form from "react-jsonschema-form";
 import Layout from '../layout';
-// import schema from './schema';
-// import uiSchema from './uiSchema';
 import schema from './supplemental_forms/ubs';
-//import schema from './supplemental_forms/ubs_if_then_else';
 import uiSchema from './supplemental_forms/ubs_ui';
+import { useLocation } from 'react-router-dom';
 
 import {
   EuiButton,
 } from '@elastic/eui';
 
-const log = (type) => {};
+export default function() {
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const formData = {
+    signer_type_entity: searchParams.get('signer_type_entity') == 'true'
+  };
 
+  const log = (type) => {};
 
-export default class extends Component {
-  constructor(props) {
-    super(props);
+  return (
+    <Layout pageTitle="JSON Schema" contentTitle="Supplemental Form">
+      <Form
+          tagName="div"
+          liveValidate={true}
+          omitExtraData={true}
+          liveOmit={false}
+          formData={formData}
+          schema={schema}
+          uiSchema={uiSchema}
+          onSubmit={log("submitted")}
+          onError={log("errors")} >
 
-    this.state = {
-      formData: {
-        signer_type_entity: true
-      },
-    };
-  }
-
-  onChange({ formData }) {
-    this.setState({
-      formData: formData
-    });
-    console.log(formData);
-  }
-
-  render() {
-    const {
-      formData,
-    } = this.state;
-
-    return (
-      <Layout pageTitle="JSON Schema" contentTitle="Supplemental Form">
-        <Form
-            //fields={fields}
-            tagName="div"
-            liveValidate={true}
-            omitExtraData={true}
-            liveOmit={false}
-            formData={formData}
-            schema={schema}
-            uiSchema={uiSchema}
-            onChange={this.onChange.bind(this)}
-            onSubmit={log("submitted")}
-            onError={log("errors")} >
-
-          <EuiButton fill type="submit">
-            Save and Exit
-          </EuiButton>
-        </Form>
-      </Layout>
-    );
-  }
+        <EuiButton fill type="submit">
+          Save and Exit
+        </EuiButton>
+      </Form>
+    </Layout>
+  );
 };
