@@ -268,6 +268,9 @@ export default {
     }
   ],
   decorators: {
+    ubs_investor_regulation_d_question_1: {
+      hint: '* If the answer to the above question is “Yes”, please contact the Partnership immediately.'
+    },
     ubs_investor_acknowledgement_question_2: {
       component: {
         type: 'radio'   // Override the default component type

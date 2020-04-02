@@ -15,6 +15,7 @@ import DefaultForm from './components/defaultForm';
 import DefaultFormWithCustomComponents from './components/defaultFormWithCustomComponents';
 import ReactJsonSchemaSupplementalForm from './components/reactJsonSchema';
 import ReactJsonFormEngineSupplementalForm from './components/reactJsonFormEngine';
+import EmbededForm from './components/embeded';
 
 function App() {
   return (
@@ -34,12 +35,18 @@ function App() {
             <li>
               <Link to="/supFormEngine">Supplemental Form (Form Engine)</Link>
             </li>
+            <li>
+              <Link to="/embeded">Embeded (Formstack)</Link>
+            </li>
           </ul>
         </nav>
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
         <Switch>
+          <Route path="/embeded">
+            <EmbededForm />
+          </Route>
           <Route path="/supFormEngine">
             <ReactJsonFormEngineSupplementalForm />
           </Route>
