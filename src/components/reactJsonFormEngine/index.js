@@ -9,16 +9,18 @@ import { useLocation } from 'react-router-dom';
 export default function() {
   const location = useLocation();
   const searchParams = new URLSearchParams(location.search);
-  const json_object = {
+  const formData = {
     signer_type_entity: (
       searchParams.get('signer_type_entity') == 'true' ? 'true' : 'false'
     )
   };
-  const json = JSON.stringify(json_object);
+
+  const title = `Supplemental Form - ${formData.signer_type_entity  == 'true' ? 'Entity ' : 'Individual'} view`;
+  const json = JSON.stringify(formData);
   const instance = new FormEngine(definition, json);
 
   return (
-    <Layout pageTitle="Json Form Engine" contentTitle="Supplemental Form">
+    <Layout pageTitle="Json Form Engine" contentTitle={title}>
       <Form
         instance={instance}
         hideFormTitle={true}

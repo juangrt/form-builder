@@ -16,10 +16,12 @@ export default function() {
     signer_type_entity: searchParams.get('signer_type_entity') == 'true'
   };
 
+  const title = `Supplemental Form - ${formData.signer_type_entity ? 'Entity ' : 'Individual'} view`;
+
   const log = (type) => {};
 
   return (
-    <Layout pageTitle="JSON Schema" contentTitle="Supplemental Form">
+    <Layout pageTitle="JSON Schema" contentTitle={title}>
       <Form
           tagName="div"
           liveValidate={true}

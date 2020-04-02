@@ -30,10 +30,20 @@ function App() {
               <Link to="/customComponents">Json Schema Example (Custom Components)</Link>
             </li>
             <li>
-              <Link to="/supFormJSchema">Supplemental Form (Json Schema)</Link>
+              Supplemental Form (Json Schema)
+              <div className="link-group">
+                <Link to="/supFormJSchema">Individual</Link>
+                &nbsp;|&nbsp;
+                <Link to="/supFormJSchema?signer_type_entity=true">Entity</Link>
+              </div>
             </li>
             <li>
-              <Link to="/supFormEngine">Supplemental Form (Form Engine)</Link>
+              Supplemental Form (Form Engine)
+              <div className="link-group">
+                <Link to="/supFormEngine">Individual</Link>
+                &nbsp;|&nbsp;
+                <Link to="/supFormEngine?signer_type_entity=true">Entity</Link>
+              </div>
             </li>
             <li>
               <Link to="/embeded">Embeded (Formstack)</Link>
